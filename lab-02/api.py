@@ -43,22 +43,22 @@ def vigenere_decrypt():
     decrypted_text = vigenere_cipher.decrypt_text(cipher_text, key)
     return jsonify({'decrypted_message': decrypted_text})
 
-#Railfence
+# Railfence
 railfence_cipher = RailFenceCipher()
 @app.route('/api/railfence/encrypt', methods=['POST'])
 def railfence_encrypt():
     data = request.get_json()
-    text = data['plain_text']
-    key = int(data['key'])
-    encrypted_text = railfence_cipher.rail_fence_encrypt(plain_text, key)
+    text = data['plain_text']       # lấy dữ liệu từ JSON
+    key = int(data['key'])          # ép kiểu sang int
+    encrypted_text = railfence_cipher.rail_fence_encrypt(text, key)  # dùng text
     return jsonify({'encrypted_message': encrypted_text})
 
 @app.route('/api/railfence/decrypt', methods=['POST'])
 def railfence_decrypt():
     data = request.get_json()
-    text = data['cipher_text']
-    key = int(data['key'])
-    decrypted_text = railfence_cipher.rail_fence_decrypt(cipher_text, key)
+    text = data['cipher_text']      # lấy dữ liệu từ JSON
+    key = int(data['key'])          # ép kiểu sang int
+    decrypted_text = railfence_cipher.rail_fence_decrypt(text, key)  # dùng text
     return jsonify({'decrypted_message': decrypted_text})
 
 

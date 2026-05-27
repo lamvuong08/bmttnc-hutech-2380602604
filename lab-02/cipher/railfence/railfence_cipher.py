@@ -3,9 +3,10 @@ class RailFenceCipher:
         pass
 
     def rail_fence_encrypt(self, plain_text, num_rails):
+        num_rails = int(num_rails)  # ép kiểu
         rails = [[] for _ in range(num_rails)]
         rail_index = 0
-        direction = 1  
+        direction = 1
         
         for char in plain_text:
             rails[rail_index].append(char)
@@ -19,6 +20,7 @@ class RailFenceCipher:
         return cipher_text
 
     def rail_fence_decrypt(self, cipher_text, num_rails):
+        num_rails = int(num_rails)  # ép kiểu
         rail_lengths = [0] * num_rails
         rail_index = 0
         direction = 1
